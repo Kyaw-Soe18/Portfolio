@@ -5,182 +5,279 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
 
-  <!-- ✅ Bootstrap CSS (from CDN, works everywhere) -->
-  <link 
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
-    rel="stylesheet" 
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
-    crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- ✅ Font Awesome Icons -->
-  <link 
-    rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
-    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
-    crossorigin="anonymous" 
-    referrerpolicy="no-referrer" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-<!-- AOS CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Roboto', sans-serif; }
+
+    /* Navbar hover effect */
+    .navbar-nav .nav-link:hover { color: #ff4c4c !important; transition: 0.3s; }
+
+    /* Profile section */
+    #home {
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    }
+
+    #home img {
+      transition: transform 0.5s;
+    }
+
+    #home img:hover {
+      transform: scale(1.05) rotate(3deg);
+    }
+
+    #home .btn {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    #home .btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    /* Text fade-in on hover */
+    #home h1, #home h3, #home p {
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    #home:hover h1, #home:hover h2, #home:hover p {
+      transform: translateY(-2px);
+      color: #000;
+    }
+
+    #about-me {
+  scroll-margin-top: 70px;
+}
+#project {
+  scroll-margin-top: 70px;
+}
+#member {
+  scroll-margin-top: 70px;
+}
+#contact {
+  scroll-margin-top: 70px;
+}
+
+
+    /* Hero Section */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('./Image/cat.jpg') no-repeat center center/cover;
+  color: black;
+
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./Image/cat.jpg') no-repeat center center/cover;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+/* Profile Image Hover Effect */
+.hero-img {
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.hero-img:hover {
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* Button Hover Effect */
+.hero-btn {
+  transition: transform 0.3s;
+}
+.hero-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    text-align: center;
+  }
+  .hero-section .col-md-6 {
+    margin-bottom: 30px;
+  }
+}
+
+/* Gradient Animated Progress Bar */
+.gradient-bar {
+  background: linear-gradient(90deg, #ff4d4d, #ff8080);
+  transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Optional bounce effect when bar fills */
+.gradient-bar.bounce {
+  animation: bounceWidth 0.6s;
+}
+
+@keyframes bounceWidth {
+  0% { transform: scaleX(0); }
+  60% { transform: scaleX(1.1); }
+  80% { transform: scaleX(0.95); }
+  100% { transform: scaleX(1); }
+}
+
+
+    /* Smooth scroll */
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
-<!-- ✅ Bootstrap JS (from CDN) -->
-<script 
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
-  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
-  crossorigin="anonymous"></script>
-
-
-
 <body class="bg-light">
-    
-    <!-- nav bar start  -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm sticky-top">
-        <div class="container">
-          <a class="navbar-brand text-danger" href="#">My Portfolio</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link text-danger" aria-current="page" href="#home">Home</a>
-              </li>     
-              <li class="nav-item">
-                <a class="nav-link text-danger" aria-current="page" href="#about-me">About Me</a>
-              </li>    
-              <li class="nav-item">
-                <a class="nav-link text-danger" aria-current="page" href="#project">Project</a>
-              </li>    
-              <li class="nav-item">
-                <a class="nav-link text-danger" aria-current="page" href="#">Freelancer Projects</a>
-              </li>   
-              <li class="nav-item">
-                <a class="nav-link text-danger" aria-current="page" href="#member">Member</a>
-              </li>   
-              <li class="nav-item">
-                <a class="nav-link text-danger" aria-current="page" href="#contact">Contact</a>
-              </li>           
-            </ul>
-          </div>
-        </div>
-      </nav>
-    <!-- nav bar end  -->
 
-    <!-- profile start  -->
-      <div class="container-lg mt-5 px-5" id="home">
-        <div class="row  min-vh-100 align-items-center align-content-center">
-            <div class="col-md-6 ">
-                <div class="text-center">
-                    <img class="rounded rounded-circle" width="70%" height="70%" src="./Image/cat.jpg"></div>
-            </div>
-            <div class="col-6">
-                <div class="">
-                    <p class="text-muted">Hello I'm</p>
-                    <h1 class="text-danger text-uppercase fw-bold">Web Developer</h1>
-                    <h3>Sora</h3>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque vel velit ducimus asperiores cum assumenda nihil ipsa architecto autem libero obcaecati nobis, dolorum impedit doloremque! Laborum quidem repudiandae distinctio reprehenderit!</p>
-                    <button class="btn btn-danger shadow-sm">My Work</button>
-                </div>
-            </div>
-
-        </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand text-danger fw-bold" href="#">My Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link text-danger" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-danger" href="#about-me">About Me</a></li>
+          <li class="nav-item"><a class="nav-link text-danger" href="#project">Project</a></li>
+          <li class="nav-item"><a class="nav-link text-danger" href="#">Freelancer Projects</a></li>
+          <li class="nav-item"><a class="nav-link text-danger" href="#member">Member</a></li>
+          <li class="nav-item"><a class="nav-link text-danger" href="#contact">Contact</a></li>
+        </ul>
       </div>
-    <!-- profile end  -->
+    </div>
+  </nav>
+
+<!-- Hero/Profile Section -->
+<section id="home" class="hero-section d-flex align-items-center">
+  <div class="container-lg">
+    <div class="row min-vh-70 align-items-center">
+      
+      <!-- Profile Image -->
+      <div class="col-md-6 text-center" data-aos="fade-right">
+        <img class="rounded-circle shadow-lg hero-img" width="70%" height="70%" src="./Image/cat.jpg" alt="Profile Image">
+      </div>
+      
+      <!-- Profile Info -->
+      <div class="col-md-6 text-center text-md-start" data-aos="fade-left">
+        <p class="text-muted mb-2">Hello, I'm</p>
+        <h1 class="text-danger text-uppercase fw-bold mb-2">Web Developer</h1>
+        <h2 class="fw-normal mb-3">Sora</h2>
+        <p class="text-muted mb-4">
+          I create modern, responsive websites that are fast, interactive, and visually appealing. Let's build something amazing together!
+        </p>
+        <a href="#project" class="btn btn-danger btn-lg shadow-sm hero-btn">View My Work</a>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Optional Background Overlay -->
+  <div class="hero-bg"></div>
+</section>
+
 
     <!-- skill section start  -->
 
-    <div class="mx-5" id="about-me">
-      <div class="container-lg">
-        <div class="row justify-content-center">
-          <div class="col-lg-8 text-center pt-1 mb-5">
-            <h2 class="fw-bold">About Me</h2>
-          </div>
-        </div>
-      </div>
+<!-- About Me Section -->
+<section id="about-me" class="py-5 bg-light">
+  <div class="container-lg" data-aos="fade-up">
 
-      <div class="row">
-
-        <div class="col-md-5 offset-1 mb-5">
-
-          <div class="row">
-            <div class="col">
-              <h3 class="fs-3 mb-3">Freelancer</h3>
-              <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab itaque nihil exercitationem soluta error, excepturi similique ad obcaecati, placeat architecto ratione delectus fugiat dignissimos! Accusantium aspernatur facilis vel vero maiores!</p>
-            
-            </div>
-          </div>
-
-          <div class="row text-center text-uppercase my-3">
-
-            <div class="col-4">
-              <h4 class="fw-bold fs-1">100+</h4>
-              <p class="text-muted">Project Completed</p>
-            </div>
-
-            <div class="col-4">
-              <h4 class="fw-bold fs-1">90+</h4>
-              <p class="text-muted">Happy Clients</p>
-            </div>
-
-            <div class="col-4">
-              <h4 class="fw-bold fs-1">95+</h4>
-              <p class="text-muted">Positive Reviews</p>
-            </div>
-
-          </div>
-
-
-          <div class="row">
-            <div class="col-lg-12 d-flex">
-              <a href="#" class="text-uppercase btn btn-danger text-white shadow-sm px-3">Download cv</a>
-              <div class="ms-3 mt-2">
-                <a href="" class="text-decoration-none"><i class="fa-brands fa-facebook  text-dark me-3 fs-5"></i></a>
-                <a href="" class="text-decoration-none"><i class="fa-brands fa-telegram  text-dark me-3 fs-5"></i></a>
-                <a href="" class="text-decoration-none"><i class="fa-brands fa-github  text-dark me-3 fs-5"></i></a>
-                <a href="" class="text-decoration-none"><i class="fa-brands fa-viber  text-dark me-3 fs-5"></i></a>
-              </div>
-
-              
-            </div>
-           
-          </div>
-
-        </div>
-        <div class="col-md-5">
-
-          <div class="mb-4">
-            <h3 class="fs-6">HTML</h3>
-            <div class="progress" style="height: 5px;" role="progressbar" aria-label="Basic Example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="10">
-              <div class="progress-bar bg-danger" style="width: 60%"></div>
-            </div>
-          </div>
-
-          <div class="mb-4">
-            <h3 class="fs-6">CSS</h3>
-            <div class="progress" style="height: 5px;" role="progressbar" aria-label="Basic Example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="10">
-              <div class="progress-bar bg-danger" style="width: 50%"></div>
-            </div>
-          </div>
-
-          <div class="mb-4">
-            <h3 class="fs-6">JavaScript</h3>
-            <div class="progress" style="height: 5px;" role="progressbar" aria-label="Basic Example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="10">
-              <div class="progress-bar bg-danger" style="width: 30%"></div>
-            </div>
-          </div>
-
-          <div class="mb-4">
-            <h3 class="fs-6">Bootstrap</h3>
-            <div class="progress" style="height: 5px;" role="progressbar" aria-label="Basic Example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="10">
-              <div class="progress-bar bg-danger" style="width: 80%"></div>
-            </div>
-          </div>
-
-        </div>
-
+    <!-- Section Title -->
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center pt-1 mb-5" data-aos="zoom-in">
+        <h2 class="fw-bold">About Me</h2>
       </div>
     </div>
+
+    <div class="row">
+      <!-- Left Column -->
+      <div class="col-md-5 offset-1 mb-5" data-aos="fade-right" data-aos-delay="100">
+
+        <h3 class="fs-3 mb-3">Freelancer</h3>
+        <p class="text-muted mb-4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab itaque nihil exercitationem soluta error, excepturi similique ad obcaecati, placeat architecto ratione delectus fugiat dignissimos! Accusantium aspernatur facilis vel vero maiores!
+        </p>
+
+        <!-- Stats -->
+        <div class="row text-center text-uppercase my-3">
+          <div class="col-4" data-aos="fade-up" data-aos-delay="200">
+            <h4 class="fw-bold fs-1 counter" data-target="100">0</h4>
+            <p class="text-muted">Project Completed</p>
+          </div>
+          <div class="col-4" data-aos="fade-up" data-aos-delay="300">
+            <h4 class="fw-bold fs-1 counter" data-target="90">0</h4>
+            <p class="text-muted">Happy Clients</p>
+          </div>
+          <div class="col-4" data-aos="fade-up" data-aos-delay="400">
+            <h4 class="fw-bold fs-1 counter" data-target="95">0</h4>
+            <p class="text-muted">Positive Reviews</p>
+          </div>
+        </div>
+
+        <!-- CV and Social Links -->
+        <div class="row">
+          <div class="col-lg-12 d-flex align-items-center" data-aos="fade-up" data-aos-delay="500">
+            <a href="#" class="btn btn-danger shadow-sm text-white px-3">Download CV</a>
+            <div class="ms-3 mt-2">
+              <a href="#" class="text-decoration-none me-3"><i class="fa-brands fa-facebook text-dark fs-5"></i></a>
+              <a href="#" class="text-decoration-none me-3"><i class="fa-brands fa-telegram text-dark fs-5"></i></a>
+              <a href="#" class="text-decoration-none me-3"><i class="fa-brands fa-github text-dark fs-5"></i></a>
+              <a href="#" class="text-decoration-none me-3"><i class="fa-brands fa-viber text-dark fs-5"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Right Column (Skills) -->
+    <div class="col-md-5" data-aos="fade-left" data-aos-delay="200">
+      <!-- Skill -->
+      <div class="mb-4 skill" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="fs-6">HTML</h3>
+        <div class="progress" style="height:8px;">
+          <div class="progress-bar gradient-bar" style="width:0%" data-width="60%"></div>
+        </div>
+      </div>
+
+      <div class="mb-4 skill" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="fs-6">CSS</h3>
+        <div class="progress" style="height:8px;">
+          <div class="progress-bar gradient-bar" style="width:0%" data-width="50%"></div>
+        </div>
+      </div>
+
+      <div class="mb-4 skill" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="fs-6">JavaScript</h3>
+        <div class="progress" style="height:8px;">
+          <div class="progress-bar gradient-bar" style="width:0%" data-width="30%"></div>
+        </div>
+      </div>
+
+      <div class="mb-4 skill" data-aos="fade-up" data-aos-delay="400">
+        <h3 class="fs-6">Bootstrap</h3>
+        <div class="progress" style="height:8px;">
+          <div class="progress-bar gradient-bar" style="width:0%" data-width="80%"></div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
 
     <!-- skill section end  -->
 
@@ -195,33 +292,32 @@
         </div>
 
         <div class="row text-center">
-<div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-  <div class="bg-white shadow-sm rounded p-3">
-    <i class="fa-solid fa-code text-danger fs-2"></i>
-    <h5 class="py-2">Web Development</h5>
-    <p class="text-muted">Lorem ipsum dolor sit amet...</p>
-  </div>
-</div>
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-right">
+            <div class="bg-white shadow-sm rounded p-3">
+              <i class="fa-solid fa-code text-danger fs-2"></i>
+              <h5 class="py-2">Web Development</h5>
+              <p class="text-muted">Lorem ipsum dolor sit amet...</p>
+            </div>
+          </div>
 
-<div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-  <div class="bg-white shadow-sm rounded p-3">
-    <i class="fa-regular fa-lightbulb text-danger fs-2"></i>
-    <h5 class="py-2">Creative Ideas</h5>
-    <p class="text-muted">Lorem ipsum dolor sit amet...</p>
-  </div>
-</div>
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="bg-white shadow-sm rounded p-3">
+              <i class="fa-regular fa-lightbulb text-danger fs-2"></i>
+              <h5 class="py-2">Creative Ideas</h5>
+              <p class="text-muted">Lorem ipsum dolor sit amet...</p>
+            </div>
+          </div>
 
-<div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-  <div class="bg-white shadow-sm rounded p-3">
-    <i class="fa-solid fa-image text-danger fs-2"></i>
-    <h5 class="py-2">Photoshop</h5>
-    <p class="text-muted">Lorem ipsum dolor sit amet...</p>
-  </div>
-</div>
-
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-left" data-aos-delay="200">
+            <div class="bg-white shadow-sm rounded p-3">
+              <i class="fa-solid fa-image text-danger fs-2"></i>
+              <h5 class="py-2">Photoshop</h5>
+              <p class="text-muted">Lorem ipsum dolor sit amet...</p>
+            </div>
+          </div>
+        </div>
       </div>
-</div>
-</div>
+    </div>
 
     <!-- what i do section end -->
 
@@ -312,7 +408,7 @@
     <!-- Member Section  -->
 
     <div class="mt-4" id="member">
-      <div class="container-lg">
+      <div class="container-lg" data-aos="fade-up">
         <div class="row justify-content-center py-3">
           <div class="col-lg-8 text-center pt-1 mb-3">
             <h2 class="fw-bold">Our Team Members</h2>
@@ -486,6 +582,8 @@
     <!-- footer section end -->
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 <!-- AOS JS -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
@@ -495,5 +593,56 @@
     offset: 100 // start animation 100px before element enters viewport
   });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Scroll-triggered Progress Bar with bounce
+  const progressBars = document.querySelectorAll('.progress-bar');
+  const progressObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const bar = entry.target;
+        const width = bar.getAttribute('data-width');
+        bar.style.width = width;
+        bar.classList.add('bounce');
+        progressObserver.unobserve(bar);
+      }
+    });
+  }, {threshold: 0.6});
+
+  progressBars.forEach(bar => progressObserver.observe(bar));
+
+  // Scroll-triggered Counter (unchanged)
+  const counters = document.querySelectorAll('.counter');
+  const counterObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const counter = entry.target;
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        const increment = target / 100;
+        const updateCount = () => {
+          count += increment;
+          if(count < target){
+            counter.innerText = Math.ceil(count);
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+        counterObserver.unobserve(counter);
+      }
+    });
+  }, {threshold: 0.6});
+
+  counters.forEach(counter => counterObserver.observe(counter));
+
+});
+</script>
+
+
+
 
 </html>
